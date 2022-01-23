@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@柒宇</title>
+  </head>
+  <body>
+    <main>
+      <div class="profile">
+        <div id="avatar"></div>
+        <p id="name"></p>
+        <p id="desc"></p>
+      </div>
+      <nav id="nav"></nav>
+      <div id="links"></div>
+    </main>
+  </body>
+
+  <script>
+    const config = {
+      avatar:
+        'https://cdn.jsdelivr.net/gh/qiyuor2/blog-image/img/pixelartoc_1.png',
+      name: '柒宇',
+      desc: '且视他人之疑目如盏盏鬼火，大胆地去走你的夜路',
+      nav: [{ label: '博客', link: 'https://blog.qiyuor2.cn' }],
+    };
+
+    const $ = (selector) => {
+      if (selector.slice(0, 1) === '#') {
+        return document.querySelector(selector);
+      }
+      return document.querySelectorAll(selector);
+    };
+
+    const imageRender = (src) => {
+      const img = document.createElement('img');
+      img.src = src;
+      img.onload = () => {
+        $('#avatar').appendChild(img);
+      };
+    };
+
+    const navRender = () => {
+      const { nav } = config;
+      return nav.map((i) => `<a href="${i.link}">${i.label}</a>`);
+    };
+
+    imageRender(config.avatar);
+    $('#name').innerHTML = config.name;
+    $('#desc').innerHTML = config.desc;
+    $('#nav').innerHTML = navRender();
+  </script>
+</html>
