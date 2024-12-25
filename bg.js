@@ -129,25 +129,4 @@ window.onload = function () {
   }
 
   fireAnimate();
-
-  function changeStar() {
-    loop = function () {
-      drawfromCache();
-
-      drawTimes++;
-
-      if (drawTimes > 150) {
-        if (drawTimes % 8 == 0) {
-          ctx.fillStyle = 'rgba(0,0,0,.04)';
-          ctx.fillRect(
-            -(longside * 3),
-            -(longside * 3),
-            longside * 6,
-            longside * 6
-          );
-        }
-      }
-      rotateCanvas(random(1, 100));
-    };
-  }
 };
