@@ -1,8 +1,6 @@
 # 柒宇
 
-个人主页。静态页面，GitHub Pages 直接托管，不需要构建。
-
-现在仍然由 `https://qiyuor2.github.io/` 提供。自定义域名 `qiyuor2.me` 还没有接上，仓库里也没有 `CNAME`。
+个人主页。静态文件，不需要构建。`https://qiyuor2.github.io/` 现在仍可直接打开。生产环境准备接到 Vercel 上的 `https://qiyuor2.me/`。仓库里没有 `CNAME`。
 
 ## 站点列表
 
