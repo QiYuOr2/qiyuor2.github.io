@@ -63,7 +63,7 @@
     <link rel="icon" href="/favicon-96x96.png" type="image/png" sizes="96x96" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="stylesheet" href="/style.css?v=a69ede21" />
+    <link rel="stylesheet" href="/style.css?v=ae9b59aa" />
   </head>
   <body class="home">
     <a class="skip" href="#content">跳到内容</a>
@@ -75,11 +75,7 @@
       <header class="rise d1">
         <img class="avatar" src="/avatar.webp" width="64" height="64" alt="" />
         <h1 class="title">
-          <span class="title-row">
-            <button type="button" class="name" id="name-btn" aria-expanded="false" aria-controls="witch-note">柒宇</button>
-            <span class="dot" aria-hidden="true"></span>
-          </span>
-          <span class="witch" id="witch-note" aria-hidden="true">暗之魔女 · 柒宇。半精灵，擅长水与冰魔法，经营一间酒馆。</span>
+          <span class="title-row">柒宇<span class="dot" aria-hidden="true"></span></span>
         </h1>
         <p class="intro">前端工程师，开发过 Canvas 动画和前端工具链，最近在折腾 AI Agent。</p>
         <p class="motto">且视他人之疑目如盏盏鬼火，大胆地去走你<span class="nw">的夜路。</span></p>
@@ -119,17 +115,5 @@
       <footer class="colophon">© 2026 柒宇 · 今日も晴れ</footer>
     </main>
     <script src="/theme.js?v=4a898404"></script>
-    <script>
-      (function () {
-        var btn = document.getElementById("name-btn");
-        var note = document.getElementById("witch-note");
-        if (!btn || !note) return;
-        btn.addEventListener("click", function () {
-          var open = btn.getAttribute("aria-expanded") !== "true";
-          btn.setAttribute("aria-expanded", open ? "true" : "false");
-          note.setAttribute("aria-hidden", open ? "false" : "true");
-        });
-      })();
-    </script>
   </body>
 </html>

@@ -275,31 +275,6 @@ main {
   flex: none;
 }
 
-.name {
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-}
-
-.witch {
-  display: block;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-  color: var(--fg-muted);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.title:hover .witch,
-.title:focus-within .witch,
-.title:has([aria-expanded="true"]) .witch {
-  height: auto;
-  margin-top: 8px;
-  opacity: 1;
-}
-
 .intro {
   margin-top: 12px;
   color: var(--fg);
