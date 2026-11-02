@@ -6,8 +6,8 @@
   --fg-muted: #6c717a;
   --fg-faint: #c4c7cc;
   --surface: #f1f1ee;
-  --accent: #2f75c0;
-  --accent-soft: #2f75c01f;
+  --accent: #3b693d;
+  --accent-soft: #3b693d1f;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
     "Source Han Sans SC", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
@@ -25,8 +25,8 @@
   --fg-muted: #7d828b;
   --fg-faint: #3a3d42;
   --surface: #1b1d20;
-  --accent: #7db4f0;
-  --accent-soft: #7db4f033;
+  --accent: #6fa776;
+  --accent-soft: #6fa77633;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,8 +38,8 @@
     --fg-muted: #7d828b;
     --fg-faint: #3a3d42;
     --surface: #1b1d20;
-    --accent: #7db4f0;
-    --accent-soft: #7db4f033;
+    --accent: #6fa776;
+    --accent-soft: #6fa77633;
   }
 }
 
@@ -68,7 +68,7 @@ body {
 
 [data-theme="light"] body {
   background-color: var(--bg);
-  background-image: linear-gradient(to bottom, #2f75c00d, transparent 280px);
+  background-image: linear-gradient(to bottom, #3b693d0d, transparent 280px);
   background-repeat: no-repeat;
 }
 
@@ -195,12 +195,11 @@ main {
 
 .home main {
   padding-top: 96px;
-  padding-bottom: 40px;
+  padding-bottom: 24px;
 }
 
-/* One 1280×800 screen: keep the 4px scale, pull the portal rhythm in from 48. */
 .home {
-  --section: 32px;
+  --section: 48px;
 }
 
 .home .intro {
@@ -220,7 +219,7 @@ main {
 }
 
 .home .colophon {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .avatar {
