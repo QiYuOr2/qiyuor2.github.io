@@ -562,6 +562,19 @@ h2,
   color: var(--fg-faint);
 }
 
+.points.scan li {
+  display: grid;
+  grid-template-columns: 6em minmax(0, 1fr);
+  column-gap: 12px;
+  align-items: baseline;
+}
+
+.points.scan .k {
+  color: var(--fg-deep);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
 .more {
   margin-top: 24px;
 }
