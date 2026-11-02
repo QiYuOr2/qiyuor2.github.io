@@ -488,6 +488,14 @@ h2,
   line-height: 1.4;
 }
 
+.muted-note {
+  margin-inline: 0.25em;
+  color: var(--fg-muted);
+  font-size: 0.85em;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
 .resume .section h2::before {
   content: "";
   width: 6px;
