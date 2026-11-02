@@ -24,7 +24,7 @@
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     root.style.backgroundColor = colors[theme];
-    if (document.body) document.body.style.backgroundColor = colors[theme];
+    if (document.body) document.body.style.backgroundColor = "transparent";
     setThemeColor(themeColors[theme]);
     var toDark = theme === "dark";
     button.setAttribute("aria-label", toDark ? "切换到浅色" : "切换到深色");
