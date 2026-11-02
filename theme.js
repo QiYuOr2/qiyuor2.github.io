@@ -3,6 +3,17 @@
   if (!button) return;
 
   var colors = { light: "#fbfbf9", dark: "#111214" };
+  var themeColors = { light: "#f1f4ef", dark: "#111214" };
+
+  function setThemeColor(color) {
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    if (!metas.length) return;
+    metas[0].setAttribute("content", color);
+    metas[0].removeAttribute("media");
+    for (var i = metas.length - 1; i > 0; i--) {
+      metas[i].parentNode.removeChild(metas[i]);
+    }
+  }
 
   function current() {
     return document.documentElement.dataset.theme === "light" ? "light" : "dark";
@@ -13,8 +24,7 @@
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     root.style.backgroundColor = colors[theme];
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", colors[theme]);
+    setThemeColor(themeColors[theme]);
     var toDark = theme === "dark";
     button.setAttribute("aria-label", toDark ? "切换到浅色" : "切换到深色");
     button.setAttribute("title", toDark ? "切换到浅色" : "切换到深色");
