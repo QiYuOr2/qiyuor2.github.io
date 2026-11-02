@@ -429,6 +429,13 @@ h2,
   line-height: 1.5;
 }
 
+.resume .section-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
 .resume .section h2 {
   display: flex;
   align-items: center;
@@ -437,6 +444,18 @@ h2,
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.16em;
+}
+
+.resume .section-head h2 {
+  margin-bottom: 0;
+}
+
+.resume .hint {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .resume .section h2::before {
