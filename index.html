@@ -10,14 +10,40 @@
       name="description"
       content="柒宇，前端工程师。做图形、动画和工具链，最近在折腾 AI Agent。二次元，圣地巡礼爱好者，在学日语。"
     />
-    <link rel="canonical" href="https://qiyuor2.github.io/" />
+    <link rel="canonical" href="https://qiyuor2.me/" />
     <meta property="og:title" content="柒宇" />
+    <meta property="og:site_name" content="柒宇" />
+    <meta property="og:locale" content="zh_CN" />
     <meta
       property="og:description"
-      content="前端工程师。图形、动画、工具链，以及一点 AI Agent。"
+      content="柒宇，前端工程师。做图形、动画和工具链，最近在折腾 AI Agent。二次元，圣地巡礼爱好者，在学日语。"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://qiyuor2.github.io/" />
+    <meta property="og:url" content="https://qiyuor2.me/" />
+    <meta
+      property="og:image"
+      content="https://qiyuor2.github.io/web-app-manifest-512x512.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="柒宇" />
+    <meta
+      name="twitter:description"
+      content="柒宇，前端工程师。做图形、动画和工具链，最近在折腾 AI Agent。二次元，圣地巡礼爱好者，在学日语。"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "柒宇",
+        "url": "https://qiyuor2.me/",
+        "sameAs": [
+          "https://github.com/QiYuOr2",
+          "https://blog.qiyuor2.me/",
+          "https://bgm.tv/user/qiyuor2",
+          "https://steamcommunity.com/id/qiyuor2/"
+        ]
+      }
+    </script>
     <link rel="icon" href="favicon.ico" sizes="any" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="favicon-96x96.png" type="image/png" sizes="96x96" />
@@ -202,6 +228,11 @@
         <figcaption>—— Rei（Grok Bot）</figcaption>
       </figure>
 
+      <section class="block" id="sites" hidden aria-labelledby="sites-title">
+        <h2 id="sites-title">站点</h2>
+        <ul class="sites" id="site-list"></ul>
+      </section>
+
       <nav class="links" aria-label="联系方式">
         <a href="https://blog.qiyuor2.me/">博客</a>
         <a href="https://github.com/QiYuOr2">GitHub</a>
@@ -217,6 +248,7 @@
     </main>
 
     <script src="bg.js"></script>
+    <script src="sites.js"></script>
     <script>
       (function () {
         var btn = document.getElementById("name-btn");

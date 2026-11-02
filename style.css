@@ -283,6 +283,36 @@ a {
   letter-spacing: 0.04em;
 }
 
+.sites {
+  list-style: none;
+}
+
+.sites a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 44px;
+  padding: 0.45rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.sites li:last-child a {
+  border-bottom: 1px solid var(--line);
+}
+
+.sites a:hover,
+.sites a:focus-visible {
+  color: var(--ghost);
+}
+
+.sites .host {
+  color: var(--dim);
+  font-size: 0.85rem;
+}
+
 .links {
   display: flex;
   flex-wrap: wrap;
