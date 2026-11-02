@@ -199,7 +199,7 @@ main {
 }
 
 .home main {
-  padding-top: 96px;
+  padding-top: 68px;
   padding-bottom: 24px;
 }
 
@@ -217,6 +217,10 @@ main {
 
 .home .lines p + p {
   margin-top: 0;
+}
+
+.lines .keep {
+  white-space: nowrap;
 }
 
 .home .to-resume {
@@ -353,12 +357,22 @@ h2,
 }
 
 .remark figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
   margin-top: 8px;
   color: var(--fg-muted);
   font-family: inherit;
   font-size: 0.8rem;
   line-height: 1.4;
-  text-align: right;
+}
+
+.remark .grok {
+  width: 1em;
+  height: 1em;
+  flex: none;
+  color: inherit;
 }
 
 .social {
