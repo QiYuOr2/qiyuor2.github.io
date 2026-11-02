@@ -82,6 +82,19 @@ body {
   position: relative;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  min-height: 1px;
+  background-color: var(--bg-top);
+  pointer-events: none;
+}
+
 h1,
 h2,
 h3,
