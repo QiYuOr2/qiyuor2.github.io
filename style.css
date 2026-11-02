@@ -311,6 +311,7 @@ h2,
 }
 
 .remark {
+  position: relative;
   padding: 16px 20px;
   border-radius: 12px;
   background: var(--surface);
@@ -319,15 +320,43 @@ h2,
   line-height: 1.6;
 }
 
+.remark::before {
+  content: "“";
+  position: absolute;
+  top: -0.08em;
+  left: 0.28em;
+  color: var(--accent);
+  opacity: 0.18;
+  font-size: 3.25rem;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
 .remark p {
   text-wrap: pretty;
+  line-break: strict;
+  text-spacing-trim: space-all;
+  hanging-punctuation: first last;
+}
+
+.remark .keep {
+  white-space: nowrap;
+}
+
+.remark p + p {
+  margin-top: 0.45em;
+}
+
+.remark .tail {
+  text-wrap: wrap;
 }
 
 .remark figcaption {
   margin-top: 8px;
   color: var(--fg-muted);
-  font-family: var(--font-mono);
-  font-size: 13px;
+  font-family: inherit;
+  font-size: 0.8rem;
   line-height: 1.4;
   text-align: right;
 }
