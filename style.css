@@ -135,6 +135,11 @@ a:hover {
   border-bottom-color: var(--accent);
 }
 
+a svg {
+  width: 18px;
+  height: 18px;
+}
+
 .ext {
   display: inline-block;
   width: 12px;
