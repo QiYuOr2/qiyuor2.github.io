@@ -2,7 +2,7 @@
   var button = document.getElementById("theme-toggle");
   if (!button) return;
 
-  var colors = { light: "#fbfbf9", dark: "#111214" };
+  var colors = { light: "#f1f4ef", dark: "#111214" };
   var themeColors = { light: "#f1f4ef", dark: "#111214" };
 
   function setThemeColor(color) {
@@ -24,6 +24,7 @@
     root.dataset.theme = theme;
     root.style.colorScheme = theme;
     root.style.backgroundColor = colors[theme];
+    if (document.body) document.body.style.backgroundColor = colors[theme];
     setThemeColor(themeColors[theme]);
     var toDark = theme === "dark";
     button.setAttribute("aria-label", toDark ? "切换到浅色" : "切换到深色");
