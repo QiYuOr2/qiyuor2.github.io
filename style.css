@@ -435,6 +435,8 @@ h2,
   position: relative;
   display: grid;
   place-items: center;
+  width: 20px;
+  height: 20px;
   color: var(--fg-muted);
   border-bottom-style: none;
   line-height: 0;
@@ -452,8 +454,8 @@ h2,
 }
 
 .social svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 
