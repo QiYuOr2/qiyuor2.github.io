@@ -3,8 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#141414" />
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        var root = document.documentElement;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        root.style.backgroundColor = theme === "light" ? "#f3efe8" : "#141414";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute("content", theme === "light" ? "#f3efe8" : "#141414");
+        }
+      })();
+    </script>
     <title>柒宇</title>
     <meta
       name="description"
@@ -53,6 +73,7 @@
   </head>
   <body>
     <a class="skip" href="#content">跳到内容</a>
+    <button type="button" class="theme" id="theme-toggle">浅色</button>
     <div class="sky" aria-hidden="true">
       <canvas id="startrack"></canvas>
       <div class="veil"></div>
@@ -80,140 +101,11 @@
         <p class="motto">且视他人之疑目如盏盏鬼火，大胆地去走你的夜路。</p>
       </header>
 
-      <ul class="stack" aria-label="技术栈">
-        <li>Vue / Vue3</li>
-        <li>TypeScript</li>
-        <li>uni-app / 微信小程序</li>
-        <li>Vite</li>
-        <li>Webpack</li>
-        <li>Canvas / PixiJS</li>
-        <li>Electron</li>
-        <li>Node.js</li>
-        <li>Go</li>
-        <li>Rust</li>
-        <li>MCP</li>
-        <li>Element Plus</li>
-        <li>Tailwind / UnoCSS</li>
-      </ul>
-
-      <section class="block" aria-labelledby="job-title">
-        <h2 id="job-title">工作经历</h2>
-        <p class="role">
-          前端工程师 · 某电商 SaaS 平台（2021.07 – 2024.08，实习转正）
-        </p>
-        <ul class="lines">
-          <li>
-            <span class="when">2021.07 – 2022.11</span>
-            <span
-              >商家端小程序后台、私域运营后台与桌面客户端（Vue / uni-app /
-              Electron + SQLite）</span
-            >
-          </li>
-          <li>
-            <span class="when">2022.11 – 2024.08</span>
-            <span
-              >用户社区 H5 互动活动（Vue3 / Canvas / PixiJS）与前端工程化工具（脚手架迁移
-              Vite、升级 Node 20）</span
-            >
-          </li>
-        </ul>
-        <ul class="notes">
-          <li>
-            Electron 客户端：SQLite
-            原生模块预构建，仅用 Mac 即可打包 Mac / Windows
-            双平台；消息列表虚拟滚动
-          </li>
-          <li>H5 动画：用 Canvas 替代 Lottie，低端机稳定 60FPS</li>
-          <li>
-            工程化：维护前端 CLI 与脚手架，推动 Vite 落地、升级 Node
-            20；主导后台 Vue2 → Vue3 迁移
-          </li>
-        </ul>
-      </section>
-
-      <section class="block" aria-labelledby="client-title">
-        <h2 id="client-title">合作项目</h2>
-        <ul class="lines">
-          <li>
-            <span class="when">2026</span>
-            <span
-              >某 AI 视频 / 漫剧创作平台（用户端 Web + 运营后台，Vue3 / Element
-              Plus），负责前端开发</span
-            >
-          </li>
-          <li>
-            <span class="when">2025</span>
-            <span
-              >某电商小程序 + 后台管理系统（uni-app / Vue3 / Element
-              Plus），参与小程序开发，负责管理后台前端</span
-            >
-          </li>
-        </ul>
-      </section>
-
-      <section class="block" aria-labelledby="work-title">
-        <h2 id="work-title">个人项目</h2>
-        <ul class="works">
-          <li>
-            <a class="work-name" href="https://github.com/QiYuOr2/boku-desktop"
-              >boku-desktop</a
-            >
-            <span class="when">2026</span>
-            <span class="desc">支持 macOS / Windows 的原生划词翻译工具</span>
-          </li>
-          <li>
-            <span class="work-name">NanaBot</span>
-            <span class="when">2026</span>
-            <span class="desc"
-              >基于 NapCat 的 QQ 机器人，监控 B 站直播间，带 Web 面板</span
-            >
-          </li>
-          <li>
-            <a
-              class="work-name"
-              href="https://github.com/QiYuOr2/anitabi-mcp-server"
-              >anitabi-mcp-server</a
-            >
-            <span class="when">2025</span>
-            <span class="desc">anitabi 巡礼地图的 MCP Server</span>
-          </li>
-          <li>
-            <a class="work-name" href="https://blog.qiyuor2.me/">blog</a>
-            <span class="when">2021 – 至今</span>
-            <span class="desc">个人博客</span>
-          </li>
-          <li>
-            <a
-              class="work-name"
-              href="https://github.com/QiYuOr2/vscode-blog-manager"
-              >vscode-blog-manager</a
-            >
-            <span class="when">2022</span>
-            <span class="desc">VS Code 博客文章管理插件</span>
-          </li>
-          <li>
-            <a class="work-name" href="https://github.com/QiYuOr2/svy">svy</a>
-            <span class="when">2021</span>
-            <span class="desc">自用 CLI 工具</span>
-          </li>
-        </ul>
-        <p class="more">
-          <a href="https://github.com/QiYuOr2">更多在 GitHub</a>
-        </p>
-      </section>
-
-      <section class="block" aria-labelledby="write-title">
-        <h2 id="write-title">写作</h2>
-        <p>
-          在博客里写前端工程化、渲染与组件设计、性能优化，最近也写 AI Agent
-          的原理与实践；偶尔记录读书和巡礼。
-          <a href="https://blog.qiyuor2.me/">去博客看看</a>
-        </p>
-      </section>
-
       <section class="block" aria-labelledby="like-title">
         <h2 id="like-title">兴趣</h2>
-        <p>MyGO!!!!!、圣地巡礼，也为 Live 去过日本。</p>
+        <p>动画：偏爱日常、青春与音乐题材，也追奇幻和口碑剧场版，每季新番基本不落。</p>
+        <p>游戏：开放世界与动作 RPG 为主，独立游戏和 Type-Moon 视觉小说也常玩。</p>
+        <p>圣地巡礼，也为 Live 去过日本。</p>
       </section>
 
       <figure class="remark">
@@ -221,47 +113,35 @@
           <p>
             「前端出身，却总在边界外折腾：用 Go 写桌面小工具，用 Rust 写
             CLI，给巡礼地图接上 MCP，给 QQ
-            机器人做直播提醒。做的东西不大，但多半是先解决自己的问题，再顺手开源。会为一场
-            Live 飞去日本，然后顺着巡礼地图把京都走一遍。」
+            机器人做直播提醒。做的东西不大，但多半是先解决自己的问题，再顺手开源。」
           </p>
         </blockquote>
         <figcaption>—— Rei（Grok Bot）</figcaption>
       </figure>
-
-      <section class="block" id="sites" hidden aria-labelledby="sites-title">
-        <h2 id="sites-title">站点</h2>
-        <ul class="sites" id="site-list"></ul>
-      </section>
 
       <nav class="links" aria-label="联系方式">
         <a href="https://blog.qiyuor2.me/">博客</a>
         <a href="https://github.com/QiYuOr2">GitHub</a>
         <a href="https://bgm.tv/user/qiyuor2">Bangumi</a>
         <a href="https://steamcommunity.com/id/qiyuor2/">Steam</a>
-        <a
-          href="http://wpa.qq.com/msgrd?v=3&uin=1176281967&site=qq&menu=yes"
-          >QQ</a
-        >
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=1176281967&site=qq&menu=yes">QQ</a>
         <a href="mailto:mengyu6498@icloud.com">邮箱</a>
         <a href="https://space.bilibili.com/10980643">哔哩哔哩</a>
+        <a href="/resume">简历</a>
       </nav>
     </main>
 
     <script src="bg.js"></script>
-    <script src="sites.js"></script>
+    <script src="theme.js"></script>
     <script>
       (function () {
         var btn = document.getElementById("name-btn");
         var note = document.getElementById("witch-note");
         if (!btn || !note) return;
-
-        function setOpen(open) {
+        btn.addEventListener("click", function () {
+          var open = btn.getAttribute("aria-expanded") !== "true";
           btn.setAttribute("aria-expanded", open ? "true" : "false");
           note.setAttribute("aria-hidden", open ? "false" : "true");
-        }
-
-        btn.addEventListener("click", function () {
-          setOpen(btn.getAttribute("aria-expanded") !== "true");
         });
       })();
     </script>

@@ -3,8 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="color-scheme" content="dark" />
     <meta name="theme-color" content="#141414" />
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        var root = document.documentElement;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        root.style.backgroundColor = theme === "light" ? "#f3efe8" : "#141414";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute("content", theme === "light" ? "#f3efe8" : "#141414");
+        }
+      })();
+    </script>
     <meta name="robots" content="noindex" />
     <title>找不到 · 柒宇</title>
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -12,6 +32,7 @@
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
+    <button type="button" class="theme" id="theme-toggle">浅色</button>
     <div class="sky" aria-hidden="true">
       <canvas id="startrack"></canvas>
       <div class="veil"></div>
@@ -24,5 +45,6 @@
       </header>
     </main>
     <script src="/bg.js"></script>
+    <script src="/theme.js"></script>
   </body>
 </html>

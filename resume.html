@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#141414" />
+    <script>
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("theme");
+        } catch (error) {}
+        if (theme !== "light" && theme !== "dark") {
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches
+            ? "light"
+            : "dark";
+        }
+        var root = document.documentElement;
+        root.dataset.theme = theme;
+        root.style.colorScheme = theme;
+        root.style.backgroundColor = theme === "light" ? "#f3efe8" : "#141414";
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) {
+          meta.setAttribute("content", theme === "light" ? "#f3efe8" : "#141414");
+        }
+      })();
+    </script>
+    <title>简历 · 柒宇</title>
+    <meta
+      name="description"
+      content="柒宇的简历。前端工程师，也写 Go、Rust 和给自己用的小工具。"
+    />
+    <link rel="canonical" href="https://qiyuor2.me/resume" />
+    <link rel="icon" href="favicon.ico" sizes="any" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#content">跳到内容</a>
+    <button type="button" class="theme" id="theme-toggle">浅色</button>
+    <div class="sky" aria-hidden="true">
+      <canvas id="startrack"></canvas>
+      <div class="veil"></div>
+    </div>
+
+    <main id="content">
+      <p class="back"><a href="/">柒宇</a></p>
+      <h1 class="page-title">简历</h1>
+
+      <section class="block" aria-labelledby="stack-title">
+        <h2 id="stack-title">技术</h2>
+        <ul class="stack">
+          <li>
+            <span class="icon" style="--icon: url(/icons/vuedotjs.svg)"></span>
+            Vue / Vue3
+          </li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/typescript.svg)"></span>
+            TypeScript
+          </li>
+          <li>uni-app / 微信小程序</li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/vite.svg)"></span>
+            Vite
+          </li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/webpack.svg)"></span>
+            Webpack
+          </li>
+          <li>Canvas / PixiJS</li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/electron.svg)"></span>
+            Electron
+          </li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/nodedotjs.svg)"></span>
+            Node.js
+          </li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/go.svg)"></span>
+            Go
+          </li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/rust.svg)"></span>
+            Rust
+          </li>
+          <li>MCP</li>
+          <li>Element Plus</li>
+          <li>
+            <span class="icon" style="--icon: url(/icons/tailwindcss.svg)"></span>
+            <span class="icon" style="--icon: url(/icons/unocss.svg)"></span>
+            Tailwind / UnoCSS
+          </li>
+        </ul>
+      </section>
+
+      <section class="block" aria-labelledby="job-title">
+        <h2 id="job-title">工作经历</h2>
+        <p class="role">
+          前端工程师 · 某电商 SaaS 平台（2021.07 – 2024.08，实习转正）
+        </p>
+        <p class="phase">
+          <span class="when">2021.07 – 2022.11</span>
+          商家端小程序后台、私域运营后台与桌面客户端（Vue / uni-app / Electron +
+          SQLite）
+        </p>
+        <p class="phase">
+          <span class="when">2022.11 – 2024.08</span>
+          用户社区 H5 互动活动（Vue3 / Canvas / PixiJS）与前端工程化工具（脚手架迁移
+          Vite、升级 Node 20）
+        </p>
+        <p class="note">
+          Electron 客户端：SQLite 原生模块预构建，仅用 Mac 即可打包 Mac /
+          Windows 双平台；消息列表虚拟滚动
+        </p>
+        <p class="note">H5 动画：用 Canvas 替代 Lottie，低端机稳定 60FPS</p>
+        <p class="note">
+          工程化：维护前端 CLI 与脚手架，推动 Vite 落地、升级 Node 20；主导后台
+          Vue2 → Vue3 迁移
+        </p>
+      </section>
+
+      <section class="block" aria-labelledby="client-title">
+        <h2 id="client-title">合作项目</h2>
+        <p class="phase">
+          <span class="when">2026</span>
+          某 AI 视频 / 漫剧创作平台（用户端 Web + 运营后台，Vue3 / Element
+          Plus），负责前端开发
+        </p>
+        <p class="phase">
+          <span class="when">2025</span>
+          某电商小程序 + 后台管理系统（uni-app / Vue3 / Element
+          Plus），参与小程序开发，负责管理后台前端
+        </p>
+      </section>
+
+      <section class="block" aria-labelledby="work-title">
+        <h2 id="work-title">个人项目</h2>
+        <ul class="works">
+          <li>
+            <a class="work-name" href="https://github.com/QiYuOr2/boku-desktop"
+              >boku-desktop</a
+            >
+            <span class="desc">支持 macOS / Windows 的原生划词翻译工具</span>
+          </li>
+          <li>
+            <span class="work-name">NanaBot</span>
+            <span class="desc"
+              >基于 NapCat 的 QQ 机器人，监控 B 站直播间，带 Web 面板</span
+            >
+          </li>
+          <li>
+            <a
+              class="work-name"
+              href="https://github.com/QiYuOr2/anitabi-mcp-server"
+              >anitabi-mcp-server</a
+            >
+            <span class="desc">anitabi 巡礼地图的 MCP Server</span>
+          </li>
+          <li>
+            <a class="work-name" href="https://blog.qiyuor2.me/">blog</a>
+            <span class="desc">个人博客</span>
+          </li>
+          <li>
+            <a
+              class="work-name"
+              href="https://github.com/QiYuOr2/vscode-blog-manager"
+              >vscode-blog-manager</a
+            >
+            <span class="desc">VS Code 博客文章管理插件</span>
+          </li>
+          <li>
+            <a class="work-name" href="https://github.com/QiYuOr2/svy">svy</a>
+            <span class="desc">自用 CLI 工具</span>
+          </li>
+        </ul>
+        <p class="more">
+          <a href="https://github.com/QiYuOr2">更多在 GitHub</a>
+        </p>
+      </section>
+
+      <section class="block" aria-labelledby="write-title">
+        <h2 id="write-title">写作</h2>
+        <p>
+          在博客里写前端工程化、渲染与组件设计、性能优化，最近也写 AI Agent
+          的原理与实践；偶尔记录读书和巡礼。
+          <a href="https://blog.qiyuor2.me/">去博客看看</a>
+        </p>
+      </section>
+    </main>
+
+    <script src="bg.js"></script>
+    <script src="theme.js"></script>
+  </body>
+</html>

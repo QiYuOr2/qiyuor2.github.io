@@ -16,7 +16,24 @@
     return min + Math.round(Math.random() * (max - min));
   }
 
+  function lightTheme() {
+    return document.documentElement.dataset.theme === "light";
+  }
+
   function starColor() {
+    if (lightTheme()) {
+      return (
+        "rgba(" +
+        rand(50, 110) +
+        "," +
+        rand(50, 100) +
+        "," +
+        rand(60, 110) +
+        "," +
+        rand(18, 55) / 100 +
+        ")"
+      );
+    }
     return (
       "rgba(" +
       rand(140, 255) +
@@ -52,7 +69,7 @@
     ctx.drawImage(cache, -cache.width / 2, -cache.height / 2);
     drawTimes += 1;
     if (drawTimes > 400 && drawTimes % 8 === 0) {
-      ctx.fillStyle = "rgba(0,0,0,.04)";
+      ctx.fillStyle = lightTheme() ? "rgba(243,239,232,.06)" : "rgba(0,0,0,.04)";
       ctx.fillRect(-longside * 3, -longside * 3, longside * 6, longside * 6);
     }
     ctx.rotate((0.025 * Math.PI) / 180);
@@ -86,7 +103,7 @@
     paintCache(count);
 
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.fillStyle = "rgba(20,20,20,1)";
+    ctx.fillStyle = lightTheme() ? "rgb(243,239,232)" : "rgb(20,20,20)";
     ctx.fillRect(0, 0, width, height);
     ctx.setTransform(1, 0, 0, 1, canvas.width, 0);
     ctx.lineCap = "round";
@@ -116,6 +133,11 @@
   window.addEventListener("resize", function () {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(setup, 200);
+  });
+
+  window.addEventListener("themechange", function () {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(setup, 40);
   });
 
   if (document.readyState === "complete") setup();
