@@ -82,17 +82,20 @@ body {
   position: relative;
 }
 
-body::before {
-  content: "";
+.safari-tint {
   position: fixed;
-  z-index: 5;
   top: 0;
   left: 0;
   right: 0;
-  height: env(safe-area-inset-top, 0px);
-  min-height: 1px;
-  background-color: var(--bg-top);
+  z-index: 2147483647;
+  height: max(11px, env(safe-area-inset-top, 0px));
+  border-style: none;
+  box-shadow: none;
+  transition: none;
   pointer-events: none;
+  background-color: var(--bg-top);
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 h1,
