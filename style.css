@@ -219,10 +219,6 @@ main {
   margin-top: 0;
 }
 
-.lines .keep {
-  white-space: nowrap;
-}
-
 .home .to-resume {
   margin-top: 16px;
 }
@@ -338,22 +334,13 @@ h2,
 }
 
 .remark p {
-  text-wrap: pretty;
   line-break: strict;
   text-spacing-trim: space-all;
   hanging-punctuation: first last;
 }
 
-.remark .keep {
-  white-space: nowrap;
-}
-
 .remark p + p {
   margin-top: 0.45em;
-}
-
-.remark .tail {
-  text-wrap: wrap;
 }
 
 .remark figcaption {
@@ -541,7 +528,6 @@ h2,
   margin-top: 4px;
   font-size: 14px;
   line-height: 1.65;
-  text-wrap: pretty;
   line-break: strict;
 }
 
@@ -565,7 +551,6 @@ h2,
   color: var(--fg);
   font-size: 14px;
   line-height: 1.65;
-  text-wrap: pretty;
   line-break: strict;
 }
 
