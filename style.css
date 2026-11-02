@@ -219,6 +219,10 @@ main {
   margin-top: 0;
 }
 
+.nw {
+  white-space: nowrap;
+}
+
 .home .to-resume {
   margin-top: 16px;
 }
@@ -344,18 +348,22 @@ h2,
 }
 
 .remark figcaption {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
   margin-top: 8px;
   color: var(--fg-muted);
   font-family: inherit;
   font-size: 0.8rem;
-  line-height: 1.4;
+  line-height: 1;
+  text-align: right;
+}
+
+.remark .sig {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .remark .grok {
+  display: block;
   width: 1em;
   height: 1em;
   flex: none;
@@ -396,6 +404,10 @@ h2,
 }
 
 .to-resume {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
   margin-top: 24px;
 }
 
