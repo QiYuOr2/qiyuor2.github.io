@@ -3,48 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#141414" />
+    <meta name="theme-color" content="#fbfbf9" />
+    <meta name="color-scheme" content="light dark" />
     <script>
       (function () {
         var theme;
-        try {
-          theme = localStorage.getItem("theme");
-        } catch (error) {}
+        try { theme = localStorage.getItem("theme"); } catch (error) {}
         if (theme !== "light" && theme !== "dark") {
-          theme = window.matchMedia("(prefers-color-scheme: light)").matches
-            ? "light"
-            : "dark";
+          theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
         }
         var root = document.documentElement;
         root.dataset.theme = theme;
         root.style.colorScheme = theme;
-        root.style.backgroundColor = theme === "light" ? "#f3efe8" : "#141414";
+        root.style.backgroundColor = theme === "light" ? "#fbfbf9" : "#111214";
         var meta = document.querySelector('meta[name="theme-color"]');
-        if (meta) {
-          meta.setAttribute("content", theme === "light" ? "#f3efe8" : "#141414");
-        }
+        if (meta) meta.setAttribute("content", theme === "light" ? "#fbfbf9" : "#111214");
       })();
     </script>
     <meta name="robots" content="noindex" />
-    <title>找不到 · 柒宇</title>
+    <title>迷路了吗？ · 柒宇</title>
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/style.css" />
   </head>
-  <body>
-    <button type="button" class="theme" id="theme-toggle">浅色</button>
-    <div class="sky" aria-hidden="true">
-      <canvas id="startrack"></canvas>
-      <div class="veil"></div>
-    </div>
+  <body class="miss">
+    <a class="skip" href="#content">跳到内容</a>
+    <button type="button" class="theme" id="theme-toggle" aria-label="切换颜色">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
     <main id="content">
-      <header class="hero">
-        <h1>找不到</h1>
-        <p class="intro">这条路没有。回到有灯的地方。</p>
-        <p class="more"><a href="/">回主页</a></p>
-      </header>
+      <h1 class="title">迷路了吗？</h1>
+      <p class="intro">这里不是巡礼地</p>
+      <p class="backline"><a href="/">← 柒宇</a></p>
+      <footer class="colophon">© 2026 柒宇 · 今日も晴れ</footer>
     </main>
-    <script src="/bg.js"></script>
     <script src="/theme.js"></script>
   </body>
 </html>
