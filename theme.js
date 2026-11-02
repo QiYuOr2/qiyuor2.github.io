@@ -2,7 +2,7 @@
   var button = document.getElementById("theme-toggle");
   if (!button) return;
 
-  var colors = { light: "#f1f4ef", dark: "#111214" };
+  var colors = { light: "#fbfbf9", dark: "#111214" };
   var themeColors = { light: "#f1f4ef", dark: "#111214" };
 
   function setThemeColor(color) {

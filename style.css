@@ -51,7 +51,7 @@
 }
 
 html {
-  background-color: var(--bg-top);
+  background-color: var(--bg);
   background-image: none;
   min-height: 100%;
   text-rendering: optimizeLegibility;
@@ -67,7 +67,7 @@ body {
     env(safe-area-inset-right)
     env(safe-area-inset-bottom)
     env(safe-area-inset-left);
-  background-color: var(--bg-top);
+  background-color: var(--bg);
   background-image: none;
   color: var(--fg);
   font-family: var(--font-sans);
