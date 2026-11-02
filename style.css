@@ -315,8 +315,31 @@ h2,
   letter-spacing: 0.04em;
 }
 
+.lines p {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 8px;
+  align-items: baseline;
+}
+
 .lines p + p {
   margin-top: 8px;
+}
+
+.lines .pill {
+  justify-self: start;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #3b693d17;
+  color: #3b693d;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+[data-theme="dark"] .lines .pill {
+  background: #6fa7762e;
+  color: #6fa776;
 }
 
 .remark {
